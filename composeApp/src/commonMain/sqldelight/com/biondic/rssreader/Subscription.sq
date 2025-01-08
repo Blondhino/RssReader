@@ -10,5 +10,20 @@ CREATE TABLE  SubscriptionEntity (
 getAll:
 SELECT * FROM SubscriptionEntity;
 
+getByUrl:
+SELECT * FROM SubscriptionEntity WHERE url = ?;
+
 insert:
 INSERT INTO SubscriptionEntity (url, title, description, imageUrl, isFavorite) VALUES (?, ?, ?, ?, ?);
+
+delete:
+DELETE FROM SubscriptionEntity WHERE url = ?;
+
+updateSubscription:
+UPDATE SubscriptionEntity
+SET
+    title = ?,
+    description = ?,
+    imageUrl = ?,
+    isFavorite = ?
+WHERE url = ?;
