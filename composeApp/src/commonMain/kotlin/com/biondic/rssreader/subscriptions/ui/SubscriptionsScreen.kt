@@ -1,4 +1,4 @@
-package com.biondic.rssreader.subscriptions
+package com.biondic.rssreader.subscriptions.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
@@ -8,7 +8,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.biondic.rssreader.feed.FeedScreen
+import com.biondic.rssreader.feed.ui.FeedScreen
 
 class SubscriptionsScreen : Screen {
     @Composable

@@ -1,6 +1,6 @@
 package com.biondic.rssreader.feed.di
 
-import com.biondic.rssreader.feed.FeedViewModel
+import com.biondic.rssreader.feed.ui.FeedViewModel
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 

@@ -1,4 +1,4 @@
-package com.biondic.rssreader.feed
+package com.biondic.rssreader.feed.ui
 
 import cafe.adriel.voyager.core.model.ScreenModel
 
