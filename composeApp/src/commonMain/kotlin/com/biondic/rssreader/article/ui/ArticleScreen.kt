@@ -1,4 +1,4 @@
-package com.biondic.rssreader.article
+package com.biondic.rssreader.article.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
