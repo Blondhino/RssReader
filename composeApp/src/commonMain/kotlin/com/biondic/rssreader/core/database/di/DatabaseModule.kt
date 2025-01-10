@@ -8,4 +8,5 @@ import org.koin.dsl.module
 fun databaseModule() = module {
     singleOf(::provideDatabase)
     factory { get<RssDatabase>().subscriptionQueries }
+    factory { get<RssDatabase>().articleQueries }
 }
