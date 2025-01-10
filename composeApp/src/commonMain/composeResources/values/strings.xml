@@ -1,0 +1,4 @@
+<resources>
+    <string name="header_button_add_text">Add</string>
+    <string name="header_url_field_hint">Subscription url here</string>
+</resources>

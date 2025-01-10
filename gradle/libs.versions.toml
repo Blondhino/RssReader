@@ -12,6 +12,7 @@ androidx-lifecycle = "2.8.4"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
 arrow = "1.2.4"
+coil3 = "2.4.4"
 compose-multiplatform = "1.7.0"
 detekt = "1.23.6"
 detektFormatting = "1.23.6"
@@ -45,6 +46,7 @@ ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref =
 ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
 ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlintCli" }
+landscapist-coil3 = { module = "com.github.skydoves:landscapist-coil3", version.ref = "coil3" }
 detekt-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektFormatting" }
 sqldelight-android-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }

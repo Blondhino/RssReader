@@ -22,7 +22,16 @@ class DatabaseSubscriptionsDatasource(
 
     override fun saveSubscription(subscription: Subscription): Either<DatabaseError, Unit> =
         safeDatabaseCall {
-            subscriptionTable.insert(
+            subscriptionTable.getByUrl(subscription.url).executeAsOneOrNull()
+                ?.let { existingSubscription ->
+                    return@let subscriptionTable.updateSubscription(
+                        url = subscription.url,
+                        title = subscription.title,
+                        description = subscription.description,
+                        imageUrl = subscription.imageUrl,
+                        isFavorite = existingSubscription.isFavorite,
+                    )
+                } ?: subscriptionTable.insert(
                 url = subscription.url,
                 title = subscription.title,
                 description = subscription.description,
