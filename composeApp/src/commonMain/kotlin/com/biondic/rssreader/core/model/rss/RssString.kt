@@ -31,7 +31,7 @@ value class RssString private constructor(private val value: String) {
     )
 
     private fun RssString.feedItems(): List<RssItem> {
-        val rssItems = mutableListOf(value.extractItem())
+        val rssItems = mutableListOf(value.substringAfter(RSS_ITEM_START).extractItem())
         var remainingItems = value.substringAfter(RSS_ITEM_END)
         while (remainingItems.contains(RSS_ITEM_START)) {
             val item = remainingItems.extractItem()
