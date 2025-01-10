@@ -1,24 +1,73 @@
 package com.biondic.rssreader.subscriptions.ui
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.Button
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.biondic.rssreader.feed.ui.FeedScreen
+import com.biondic.rssreader.core.ui.components.RefreshableLazyColumn
+import com.biondic.rssreader.core.ui.components.SubmittableText
+import com.biondic.rssreader.subscriptions.ui.components.UISubscriptionComposable
+import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent
+import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.AddButtonClicked
+import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.RefreshCalled
+import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.UrlFieldChanged
+import com.biondic.rssreader.subscriptions.ui.state.SubscriptionsScreenState.Content
+import com.biondic.rssreader.subscriptions.ui.state.SubscriptionsScreenState.Error
+import com.biondic.rssreader.subscriptions.ui.state.SubscriptionsScreenState.Loading
 
 class SubscriptionsScreen : Screen {
     @Composable
     override fun Content() {
         val viewModel: SubscriptionsViewModel = koinScreenModel()
         val navigator = LocalNavigator.currentOrThrow
-        Column {
-            Text(viewModel.getScreenTitle())
-            Button(onClick = { navigator.push(FeedScreen()) }) {
-                Text("Go to Feed")
+        val uiState by viewModel.uiState.collectAsState()
+        when (val state = uiState) {
+            is Content -> SubscriptionsScreenContent(uiState = state, onEvent = viewModel::onEvent)
+            is Error -> {}
+            is Loading -> {}
+        }
+    }
+}
+
+@Composable
+private fun SubscriptionsScreenContent(
+    modifier: Modifier = Modifier,
+    uiState: Content,
+    onEvent: (SubscriptionsEvent) -> Unit,
+) {
+    Column(
+        modifier = modifier.fillMaxSize().padding(8.dp),
+    ) {
+        SubmittableText(
+            text = uiState.headerState.text,
+            onTextChange = { onEvent(UrlFieldChanged(it)) },
+            hint = uiState.headerState.staticData.hint,
+            submitButtonText = uiState.headerState.staticData.addButtonText,
+            onSubmit = { onEvent(AddButtonClicked(it)) },
+            errorText = uiState.headerState.error,
+            isLoading = uiState.headerState.isLoading,
+        )
+        RefreshableLazyColumn(
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+            refreshing = uiState.isRefreshing,
+            onRefresh = { onEvent(RefreshCalled) },
+        ) {
+            items(uiState.subscriptions, key = { it.url }) {
+                UISubscriptionComposable(
+                    modifier = Modifier.animateItem(),
+                    subscription = it,
+                    onEvent = onEvent,
+                )
             }
         }
     }
