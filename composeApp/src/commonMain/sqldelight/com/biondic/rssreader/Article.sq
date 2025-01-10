@@ -1,0 +1,18 @@
+CREATE TABLE ArticleEntity (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL UNIQUE ON CONFLICT REPLACE,
+    externalUrl TEXT NOT NULL,
+    description TEXT NOT NULL,
+    imageUrl TEXT NOT NULL,
+    subscriptionUrl TEXT NOT NULL,
+    FOREIGN KEY (subscriptionUrl) REFERENCES SubscriptionEntity(url) ON DELETE CASCADE
+);
+
+getAllBySubscription:
+SELECT * FROM ArticleEntity WHERE subscriptionUrl = ?;
+
+insert:
+INSERT INTO ArticleEntity (title, externalUrl, description, imageUrl, subscriptionUrl) VALUES (?, ?, ?, ?, ?);
+
+deleteAll:
+DELETE FROM ArticleEntity;
