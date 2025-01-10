@@ -2,7 +2,7 @@ package com.biondic.rssreader.subscriptions.domain.repo
 
 import arrow.core.Either
 import com.biondic.rssreader.core.model.RepositoryError
-import com.biondic.rssreader.subscriptions.data.model.SubscriptionData
+import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData
 import com.biondic.rssreader.subscriptions.domain.model.Subscription
 import kotlinx.coroutines.flow.Flow
 

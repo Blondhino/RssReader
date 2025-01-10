@@ -4,7 +4,7 @@ import arrow.core.Either
 import com.biondic.rssreader.core.model.NetworkError
 import com.biondic.rssreader.core.model.RepositoryError
 import com.biondic.rssreader.subscriptions.data.datasource.DatabaseSubscriptionsDatasource
-import com.biondic.rssreader.subscriptions.data.model.SubscriptionData
+import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData
 import com.biondic.rssreader.subscriptions.domain.datasource.RemoteSubscriptionsDatasource
 import com.biondic.rssreader.subscriptions.domain.model.Subscription
 import com.biondic.rssreader.subscriptions.domain.repo.SubscriptionRepository
