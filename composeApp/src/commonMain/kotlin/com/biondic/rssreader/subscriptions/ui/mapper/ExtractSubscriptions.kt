@@ -4,10 +4,10 @@ import arrow.core.Either
 import arrow.core.raise.either
 import arrow.core.right
 import com.biondic.rssreader.core.model.RepositoryError
+import com.biondic.rssreader.subscriptions.domain.model.Subscription
 import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData
 import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData.Local
 import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData.Remote
-import com.biondic.rssreader.subscriptions.domain.model.Subscription
 
 class ExtractSubscriptions(
     private val mergeRemoteDataIntoLocalItems: MergeRemoteDataIntoLocalItems,

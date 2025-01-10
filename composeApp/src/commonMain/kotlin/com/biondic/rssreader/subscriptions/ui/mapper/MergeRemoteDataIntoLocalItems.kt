@@ -1,8 +1,8 @@
 package com.biondic.rssreader.subscriptions.ui.mapper
 
 import arrow.core.Either.Right
-import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData
 import com.biondic.rssreader.subscriptions.domain.model.Subscription
+import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData
 
 class MergeRemoteDataIntoLocalItems {
     operator fun invoke(
