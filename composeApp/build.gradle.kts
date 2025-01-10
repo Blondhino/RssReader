@@ -53,6 +53,7 @@ kotlin {
             implementation(libs.bundles.arrow)
             implementation(libs.bundles.voyager)
             implementation(libs.ktor.client.core)
+            implementation(libs.landscapist.coil3)
         }
 
         nativeMain.dependencies {
