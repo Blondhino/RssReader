@@ -14,5 +14,5 @@ SELECT * FROM ArticleEntity WHERE subscriptionUrl = ?;
 insert:
 INSERT INTO ArticleEntity (title, externalUrl, description, imageUrl, subscriptionUrl) VALUES (?, ?, ?, ?, ?);
 
-deleteAll:
-DELETE FROM ArticleEntity;
+deleteAllWithSubscription:
+DELETE FROM ArticleEntity WHERE subscriptionUrl = ?;
