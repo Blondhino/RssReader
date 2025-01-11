@@ -14,7 +14,10 @@ import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.Add
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.FavoriteToggleClicked
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.RefreshCalled
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.RemoveButtonClicked
+import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.SubscriptionClick
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.UrlFieldChanged
+import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsViewEffect
+import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsViewEffect.OpenArticles
 import com.biondic.rssreader.subscriptions.ui.mapper.HeaderUiMapper
 import com.biondic.rssreader.subscriptions.ui.mapper.SubscriptionsScreenUiMapper
 import com.biondic.rssreader.subscriptions.ui.model.UISubscriptionItem
@@ -42,6 +45,8 @@ class SubscriptionsViewModel(
     private val _headerState = MutableStateFlow(headerUiMapper.map())
     private val refreshTrigger = Channel<RefreshStrategy>()
     private val _refreshing = MutableStateFlow(false)
+    private val _viewEffect = Channel<SubscriptionsViewEffect>(Channel.BUFFERED)
+    val viewEffect = _viewEffect.receiveAsFlow()
 
     private val _subscriptions = refreshTrigger
         .receiveAsFlow()
@@ -72,6 +77,9 @@ class SubscriptionsViewModel(
             is RefreshCalled -> screenModelScope.launch { refreshTrigger.send(SyncWithRemote) }
             is RemoveButtonClicked -> handleRemoveButtonClickAction(event.url)
             is UrlFieldChanged -> _headerState.update { it.copy(text = event.url, error = null) }
+            is SubscriptionClick -> screenModelScope.launch {
+                _viewEffect.send(OpenArticles(event.subscription.url, event.subscription.title))
+            }
         }
     }
 

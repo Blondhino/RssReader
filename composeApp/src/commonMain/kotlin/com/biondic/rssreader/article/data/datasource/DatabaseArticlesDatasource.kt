@@ -17,9 +17,12 @@ class DatabaseArticlesDatasource(
             articlesTable.getAllBySubscription(url).executeAsList().map(entityMapper::map)
         }
 
-    override suspend fun updateArticles(articles: List<Article>): Either<DatabaseError, Unit> =
+    override suspend fun updateArticles(
+        articles: List<Article>,
+        subscriptionUrl: String,
+    ): Either<DatabaseError, Unit> =
         safeDatabaseCall {
-            articlesTable.deleteAll()
+            articlesTable.deleteAllWithSubscription(subscriptionUrl)
             articles.forEach { article ->
                 articlesTable.insert(
                     title = article.title,

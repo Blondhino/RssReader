@@ -1,4 +1,4 @@
-package com.biondic.rssreader.subscriptions.ui.components
+package com.biondic.rssreader.core.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,7 +11,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun SubscriptionInfo(
+fun InfoCard(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
