@@ -8,4 +8,5 @@ sealed interface SubscriptionsEvent {
     data class RemoveButtonClicked(val url: String) : SubscriptionsEvent
     data object RefreshCalled : SubscriptionsEvent
     data class FavoriteToggleClicked(val subscription: UISubscriptionItem) : SubscriptionsEvent
+    data class SubscriptionClick(val subscription: UISubscriptionItem) : SubscriptionsEvent
 }
