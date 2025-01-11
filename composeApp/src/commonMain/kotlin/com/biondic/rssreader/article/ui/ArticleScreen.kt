@@ -9,6 +9,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
@@ -40,11 +41,12 @@ data class ArticleScreen(
             koinScreenModel(parameters = { parametersOf(url, sourceTitle) })
         val navigator = LocalNavigator.currentOrThrow
         val uiState by viewModel.uiState.collectAsState()
+        val uriHandler = LocalUriHandler.current
 
         LaunchedEffect(Unit) {
             viewModel.viewEffect.collect {
                 when (it) {
-                    is OpenExternalUrl -> {}
+                    is OpenExternalUrl -> uriHandler.openUri(it.externalUrl)
                     is GoBackToSubscriptions -> navigator.pop()
                 }
             }
