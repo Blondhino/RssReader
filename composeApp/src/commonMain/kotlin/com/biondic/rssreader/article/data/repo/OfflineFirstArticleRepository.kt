@@ -18,14 +18,10 @@ class OfflineFirstArticleRepository(
         shouldRefresh: Boolean,
     ): Flow<ArticleData> = flow {
         val localData = localArticles.getArticlesForSubscription(url)
-        println("ARTICLE: $localData")
         emit(Local(localData))
             .also {
                 if (shouldRefresh) {
                     remoteArticles.getArticlesForSubscription(url)
-                        .also {
-                            println("ARTICLE: $it")
-                        }
                         .also { emit(Remote(it)) }
                         .map { localArticles.updateArticles(articles = it, subscriptionUrl = url) }
                 }
