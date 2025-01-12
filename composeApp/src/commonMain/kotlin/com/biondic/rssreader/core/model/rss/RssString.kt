@@ -79,6 +79,8 @@ value class RssString private constructor(private val value: String) {
     private fun String.extractLink() = this
         .substringAfter(RSS_LINK_START)
         .substringBefore(RSS_LINK_END)
+        .substringAfter(RSS_CDATA_START)
+        .substringBefore(RSS_CDATA_END)
 }
 
 private const val RSS_TITLE_START = "<title>"
