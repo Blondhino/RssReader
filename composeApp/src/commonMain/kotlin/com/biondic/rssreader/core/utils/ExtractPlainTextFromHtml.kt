@@ -12,6 +12,8 @@ fun String.extractPlainTextFromHtml(): String {
         .replace("&lt;", "<")
         .replace("&gt;", ">")
         .replace("&quot;", "\"")
+        .replace("&apos;", "'")
+        .replace("&quot;", "\"")
         .replace("&#8216;", "‘")
         .replace("&#8217;", "’")
         .replace("&#8230;", "…")
