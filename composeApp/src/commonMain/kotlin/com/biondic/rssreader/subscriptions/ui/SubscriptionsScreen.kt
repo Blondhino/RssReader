@@ -64,12 +64,11 @@ private fun SubscriptionsScreenContent(
     ) {
         SubmittableText(
             text = uiState.headerState.text,
+            errorText = uiState.headerState.error,
             onTextChange = { onEvent(UrlFieldChanged(it)) },
             hint = uiState.headerState.staticData.hint,
-            submitButtonText = uiState.headerState.staticData.addButtonText,
-            onSubmit = { onEvent(AddButtonClicked(it)) },
-            errorText = uiState.headerState.error,
             isLoading = uiState.headerState.isLoading,
+            onTrailingIconClick = { onEvent(AddButtonClicked(it)) },
         )
         RefreshableLazyColumn(
             modifier = Modifier.fillMaxWidth().padding(top = 8.dp),

@@ -95,13 +95,17 @@ class SubscriptionsViewModel(
         }
 
     private fun handleAddButtonClickAction(url: String) = screenModelScope.launch {
-        _headerState.update { it.copy(isLoading = true, error = null) }
-        addNewSubscription(url)
-            .onRight {
-                refreshTrigger.send(ReFetchLocalItems)
-                _headerState.update { it.copy(text = "") }
-            }
-            .onLeft { error -> _headerState.update { it.copy(error = "Invalid RSS") } }
-        _headerState.update { it.copy(isLoading = false) }
+        if (_headerState.value.error != null) {
+            _headerState.update { it.copy(error = null, text = "") }
+        } else {
+            _headerState.update { it.copy(isLoading = true, error = null) }
+            addNewSubscription(url)
+                .onRight {
+                    refreshTrigger.send(ReFetchLocalItems)
+                    _headerState.update { it.copy(text = "") }
+                }
+                .onLeft { error -> _headerState.update { it.copy(error = "Invalid RSS") } }
+            _headerState.update { it.copy(isLoading = false) }
+        }
     }
 }
