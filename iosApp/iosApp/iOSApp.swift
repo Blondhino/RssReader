@@ -4,7 +4,9 @@ import SwiftUI
 struct iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GeometryReader{geo in
+                ContentView().edgesIgnoringSafeArea(.all)
+            }
         }
     }
 }
