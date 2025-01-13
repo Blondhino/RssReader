@@ -61,6 +61,7 @@ value class RssString private constructor(private val value: String) {
         .substringAfter(RSS_CDATA_START)
         .substringBefore(RSS_CDATA_END)
         .extractPlainTextFromHtml()
+        .trim()
 
     private fun String.extractDescription() = this
         .substringAfter(RSS_DESCRIPTION_START, OR_EMPTY)
@@ -68,6 +69,7 @@ value class RssString private constructor(private val value: String) {
         .substringAfter(RSS_CDATA_START)
         .substringBefore(RSS_CDATA_END)
         .extractPlainTextFromHtml()
+        .trim()
 
     private fun String.extractFeedImageUrl() = this
         .substringBefore(RSS_ITEM_START)

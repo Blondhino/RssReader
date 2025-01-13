@@ -30,5 +30,5 @@ data class HeaderStaticData(
 data class TabState(
     val currentTab: SubscriptionScreenTab,
     val tabs: List<SubscriptionScreenTab>,
-    val favoritesTabTitle : String,
+    val favoritesTabTitle: String,
 )
