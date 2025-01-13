@@ -6,10 +6,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,7 +28,7 @@ fun ScreenTopBar(
         modifier = modifier
             .fillMaxWidth()
             .height(60.dp)
-            .background(color = Color.White),
+            .background(color = MaterialTheme.colorScheme.secondary),
     ) {
         Icon(
             modifier = Modifier.padding(8.dp)
@@ -35,6 +36,7 @@ fun ScreenTopBar(
                 .align(Alignment.CenterStart),
             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
             contentDescription = null,
+            tint = MaterialTheme.colorScheme.surface
         )
 
         Text(
@@ -42,6 +44,7 @@ fun ScreenTopBar(
             text = title,
             maxLines = 1,
             overflow = TextOverflow.Clip,
+            color = MaterialTheme.colorScheme.surface
         )
     }
 }
