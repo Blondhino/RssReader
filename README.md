@@ -104,7 +104,17 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Screenshots
 
-*Coming soon!*
+<div style="display: flex;">
+
+### Android
+<img src="https://github.com/Blondhino/RssReader/blob/feature/ui-improvements/screenshots/android-subscrptions-all.jpeg" width="300">
+<img src="https://github.com/Blondhino/RssReader/blob/feature/ui-improvements/screenshots/android-subscriptions-favs.jpeg" width="300" width="300">
+<img src="https://github.com/Blondhino/RssReader/blob/feature/ui-improvements/screenshots/android-articles.jpeg" width="300" width="300">
+
+### iOS 
+<img src="https://github.com/Blondhino/RssReader/blob/feature/ui-improvements/screenshots/ios-subscriptions-all.jpeg" width="300" width="300">
+<img src="https://github.com/Blondhino/RssReader/blob/feature/ui-improvements/screenshots/ios-articles.jpeg" width="300" width="300">
+</div>
 
 ---
 
