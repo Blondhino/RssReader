@@ -11,12 +11,15 @@ import com.biondic.rssreader.subscriptions.domain.repo.SubscriptionRepository
 import com.biondic.rssreader.subscriptions.domain.usecase.AddNewSubscription
 import com.biondic.rssreader.subscriptions.domain.usecase.DeleteSubscription
 import com.biondic.rssreader.subscriptions.domain.usecase.GetMySubscriptions
+import com.biondic.rssreader.subscriptions.domain.usecase.SubscriptionsCrudOperations
 import com.biondic.rssreader.subscriptions.domain.usecase.ToggleSubscriptionIsFavoriteState
 import com.biondic.rssreader.subscriptions.ui.SubscriptionsViewModel
 import com.biondic.rssreader.subscriptions.ui.mapper.ExtractSubscriptions
 import com.biondic.rssreader.subscriptions.ui.mapper.HeaderUiMapper
 import com.biondic.rssreader.subscriptions.ui.mapper.MergeRemoteDataIntoLocalItems
 import com.biondic.rssreader.subscriptions.ui.mapper.SubscriptionsScreenUiMapper
+import com.biondic.rssreader.subscriptions.ui.mapper.SubscriptionsScreenUiMappers
+import com.biondic.rssreader.subscriptions.ui.mapper.SubscriptionsTabsUiMapper
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
@@ -36,4 +39,7 @@ fun subscriptionsModule() = module {
     factoryOf(::ExtractSubscriptions)
     factoryOf(::HeaderUiMapper)
     factoryOf(::SubscriptionsScreenUiMapper)
+    factoryOf(::SubscriptionsTabsUiMapper)
+    factoryOf(::SubscriptionsScreenUiMappers)
+    factoryOf(::SubscriptionsCrudOperations)
 }

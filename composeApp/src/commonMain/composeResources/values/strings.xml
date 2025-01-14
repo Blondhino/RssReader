@@ -3,4 +3,7 @@
     <string name="header_url_field_hint">Subscription url here</string>
     <string name="retry_screen_message">Something Went Wrong, please try again latter</string>
     <string name="retry_screen_button_text">Retry</string>
+    <string name="subscriptions_screen_tab_all">All</string>
+    <string name="subscriptions_screen_tab_favorites">Favorites</string>
+    <string name="subscriptions_screen_tab_favorites_title">My Favorites</string>
 </resources>

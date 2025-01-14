@@ -9,4 +9,5 @@ sealed interface SubscriptionsEvent {
     data object RefreshCalled : SubscriptionsEvent
     data class FavoriteToggleClicked(val subscription: UISubscriptionItem) : SubscriptionsEvent
     data class SubscriptionClick(val subscription: UISubscriptionItem) : SubscriptionsEvent
+    data class TabSelected(val tab: Int) : SubscriptionsEvent
 }
