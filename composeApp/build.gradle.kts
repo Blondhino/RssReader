@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.config.JvmTarget
 import versioning.Versioning
 
 plugins {
@@ -19,6 +20,7 @@ sqldelight {
 }
 
 kotlin {
+
 
     androidTarget {
 
@@ -68,34 +70,47 @@ kotlin {
     }
 }
 
-android {
-    namespace = "com.biondic.rssreader"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    defaultConfig {
-        applicationId = "com.biondic.rssreader"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = Versioning(project.rootDir.path).readVersion().versionCode
-        versionName = Versioning(project.rootDir.path).readVersion().versionName
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEach {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget("21"))
     }
 }
 
-dependencies {
-    debugImplementation(compose.uiTooling)
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+
+
+        android {
+            namespace = "com.biondic.rssreader"
+            compileSdk = libs.versions.android.compileSdk.get().toInt()
+
+            defaultConfig {
+                applicationId = "com.biondic.rssreader"
+                minSdk = libs.versions.android.minSdk.get().toInt()
+                targetSdk = libs.versions.android.targetSdk.get().toInt()
+                versionCode = Versioning(project.rootDir.path).readVersion().versionCode
+                versionName = Versioning(project.rootDir.path).readVersion().versionName
+            }
+            packaging {
+                resources {
+                    excludes += "/META-INF/{AL2.0,LGPL2.1}"
+                }
+            }
+            buildTypes {
+                getByName("release") {
+                    isMinifyEnabled = false
+                }
+            }
+            compileOptions {
+                sourceCompatibility = JavaVersion.VERSION_21
+                targetCompatibility = JavaVersion.VERSION_21
+            }
+        }
+
+        dependencies {
+            debugImplementation(compose.uiTooling)
+        }
+    }
 }
 
