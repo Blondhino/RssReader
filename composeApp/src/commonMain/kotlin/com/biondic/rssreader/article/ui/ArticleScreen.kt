@@ -55,7 +55,7 @@ data class ArticleScreen(
         when (val state = uiState) {
             is Error -> RetryScreen(onRetryClick = { viewModel.onEvent(RefreshCalled) })
             is Loading -> LoadingIndicator(modifier = Modifier.fillMaxSize())
-            is Content -> ArticleScreenComponent(
+            is Content -> ArticleScreenContent(
                 uiState = state,
                 onEvent = viewModel::onEvent,
             )
@@ -64,7 +64,7 @@ data class ArticleScreen(
 }
 
 @Composable
-private fun ArticleScreenComponent(
+private fun ArticleScreenContent(
     modifier: Modifier = Modifier,
     uiState: Content,
     onEvent: (ArticlesEvent) -> Unit,
