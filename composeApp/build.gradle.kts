@@ -1,9 +1,13 @@
+import versioning.Versioning
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.sqldelight)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.android.versioning)
 }
 
 sqldelight {
@@ -72,8 +76,8 @@ android {
         applicationId = "com.biondic.rssreader"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = Versioning(project.rootDir.path).readVersion().versionCode
+        versionName = Versioning(project.rootDir.path).readVersion().versionName
     }
     packaging {
         resources {

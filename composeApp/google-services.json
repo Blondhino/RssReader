@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "421214786982",
+    "project_id": "rssreader-46401",
+    "storage_bucket": "rssreader-46401.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421214786982:android:636c1f510120fbc3936b67",
+        "android_client_info": {
+          "package_name": "com.biondic.rssreader"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqmt5rODR6-eBzkjnoMEmFPXfSCF70JFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
