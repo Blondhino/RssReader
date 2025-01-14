@@ -1,7 +1,7 @@
 
 # RssReader
 
-RssReader is a Kotlin Multiplatform (KMP) application designed to help users manage and view content from their favorite RSS feeds. The app supports both Android and iOS platforms and uses modern technologies to provide a seamless experience, including offline-first functionality for data caching and viewing without mobile data.
+RssReader is a Kotlin Multiplatform Mobile(KMM) application designed to help users manage and view content from their favorite RSS feeds. The app supports both Android and iOS platforms and uses modern technologies to provide a seamless experience, including offline-first functionality for data caching and viewing without mobile data.
 
 ---
 
@@ -78,27 +78,21 @@ RssReader is a Kotlin Multiplatform (KMP) application designed to help users man
 ### Steps to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/rssreader.git
+   git clone https://github.com/Blondhino/RssReader
    cd rssreader
    ```
 2. Open the project in Android Studio or your preferred IDE.
 3. For Android:
-  - Select the `androidApp` module and run the app.
+  - Select the `composeApp` configuration and run the app.
 4. For iOS:
-  - Open the `iosApp` folder in Xcode.
-  - Select your target and build the project.
+  - Open the `iosApp.xcodeproj` folder in Xcode.
+  - If needed add `-lsqlite3` to `Other Linker Flags`
 
 ---
 
 ## Contributions
 
 Contributions are welcome! Feel free to open issues, submit pull requests, or suggest enhancements to improve RssReader.
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
