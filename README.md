@@ -113,7 +113,6 @@ This project is licensed under the [MIT License](LICENSE).
 - [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html)
 - [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
 - [SQLDelight](https://cashapp.github.io/sqldelight/)
-- [Ktor](https://ktor.io/)
 - [Koin](https://insert-koin.io/)
 - [Voyager](https://github.com/adrielcafe/voyager)
 - [Arrow](https://arrow-kt.io/)
