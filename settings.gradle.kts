@@ -2,6 +2,7 @@ rootProject.name = "RssReader"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
+    includeBuild("convention")
     repositories {
         google {
             mavenContent {

@@ -17,6 +17,7 @@ compose-multiplatform = "1.7.0"
 detekt = "1.23.6"
 detektFormatting = "1.23.6"
 detektCompose = "0.3.13"
+googleServices = "4.4.2"
 junit = "4.13.2"
 kotlin = "2.0.21"
 koin = "4.0.1"
@@ -64,6 +65,8 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+android-versioning = { id = "rssreader.android.versioning", version = "unspecified" }
 
 [bundles]
 
