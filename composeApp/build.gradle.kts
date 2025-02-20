@@ -1,9 +1,7 @@
 import config.ProjectConfigs
-import versioning.Versioning
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    id("kmp-app-plugin")
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.sqldelight)
@@ -13,29 +11,13 @@ plugins {
 
 sqldelight {
     databases {
-        create("RssDatabase") {
-            packageName = "com.biondic.rssreader"
+        create(ProjectConfigs.databaseName) {
+            packageName = ProjectConfigs.namespace
         }
     }
 }
 
 kotlin {
-
-
-    androidTarget {
-
-    }
-
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "ComposeApp"
-            isStatic = true
-        }
-    }
 
     sourceSets {
 
@@ -47,7 +29,8 @@ kotlin {
             implementation(libs.sqldelight.android.driver)
         }
         commonMain.dependencies {
-            implementation(project(":core"))
+            implementation(projects.core)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -67,62 +50,6 @@ kotlin {
         nativeMain.dependencies {
             implementation(libs.ktor.client.darwin)
             implementation(libs.sqldelight.native.driver)
-        }
-    }
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEach {
-    compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget("21"))
-    }
-}
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
-
-
-        android {
-            namespace = "com.biondic.rssreader"
-            compileSdk = ProjectConfigs.androidSdkConfig.compileSdk
-
-            defaultConfig {
-                applicationId = "com.biondic.rssreader"
-                minSdk = ProjectConfigs.androidSdkConfig.minSdk
-                targetSdk = ProjectConfigs.androidSdkConfig.targetSdk
-                versionCode = Versioning(project.rootDir.path).readVersion().versionCode
-                versionName = Versioning(project.rootDir.path).readVersion().versionName
-            }
-            packaging {
-                resources {
-                    excludes += "/META-INF/{AL2.0,LGPL2.1}"
-                }
-            }
-
-            signingConfigs {
-                create("release") {
-                    storeFile = project.rootProject.file("release/release.keystore")
-                    keyAlias = "rssreader"
-                    storePassword = System.getenv("ANDROID_RSS_READER_STORE_PASSWORD")
-                    keyPassword = System.getenv("ANDROID_RSS_READER_KEY_PASSWORD")
-                }
-            }
-
-            buildTypes {
-                getByName("release") {
-                    isMinifyEnabled = true
-                    isDebuggable = false
-                    signingConfig = signingConfigs.getByName("release")
-                }
-            }
-            compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_21
-                targetCompatibility = JavaVersion.VERSION_21
-            }
-        }
-
-        dependencies {
-            debugImplementation(compose.uiTooling)
         }
     }
 }

@@ -5,6 +5,9 @@ import model.JavaConfiguration
 import org.gradle.api.JavaVersion
 
 object ProjectConfigs {
+    val namespace = "com.biondic.rssreader"
+    val databaseName = "RssDatabase"
+
     val androidSdkConfig = AndroidSdkConfiguration(
         minSdk = 24,
         targetSdk = 34,
