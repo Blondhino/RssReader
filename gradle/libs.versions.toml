@@ -73,6 +73,7 @@ sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 android-versioning = { id = "rssreader.android.versioning", version = "unspecified" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kmp-app-plugin = { id = "kmp-app-plugin", version = "unspecified" }
 
 [bundles]
 

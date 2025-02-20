@@ -1,5 +1,5 @@
 plugins {
-    id("kmp-app-plugin")
+    alias(libs.plugins.kmp.app.plugin)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.google.services)
