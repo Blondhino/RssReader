@@ -1,20 +1,8 @@
-import config.ProjectConfigs
-
 plugins {
     id("kmp-app-plugin")
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.sqldelight)
     alias(libs.plugins.google.services)
-    alias(libs.plugins.android.versioning)
-}
-
-sqldelight {
-    databases {
-        create(ProjectConfigs.databaseName) {
-            packageName = ProjectConfigs.namespace
-        }
-    }
 }
 
 kotlin {
@@ -25,7 +13,6 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android.compose)
-            implementation(libs.sqldelight.android.driver)
         }
         commonMain.dependencies {
             implementation(projects.core)
@@ -43,10 +30,7 @@ kotlin {
             implementation(libs.bundles.voyager)
             implementation(libs.landscapist.coil3)
         }
-
-        nativeMain.dependencies {
-            implementation(libs.sqldelight.native.driver)
-        }
+        nativeMain.dependencies {}
     }
 }
 

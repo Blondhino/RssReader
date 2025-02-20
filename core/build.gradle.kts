@@ -1,5 +1,16 @@
+import config.ProjectConfigs
+
 plugins {
     id("kmp-library-plugin")
+    alias(libs.plugins.sqldelight)
+}
+
+sqldelight {
+    databases {
+        create(ProjectConfigs.databaseName) {
+            packageName = ProjectConfigs.namespace
+        }
+    }
 }
 
 android {
@@ -10,6 +21,7 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             api(libs.ktor.client.okhttp)
+            api(libs.sqldelight.android.driver)
         }
         commonMain.dependencies {
             api(libs.bundles.arrow)
@@ -17,6 +29,7 @@ kotlin {
         }
         nativeMain.dependencies {
             api(libs.ktor.client.darwin)
+            api(libs.sqldelight.native.driver)
         }
     }
 }

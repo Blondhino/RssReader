@@ -1,4 +1,4 @@
-package com.biondic.rssreader.core.database
+package database
 
 import android.content.Context
 import app.cash.sqldelight.db.SqlDriver

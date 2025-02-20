@@ -2,7 +2,7 @@ package com.biondic.rssreader.subscriptions.data.datasource
 
 import arrow.core.Either
 import com.biondic.rssreader.SubscriptionQueries
-import com.biondic.rssreader.core.database.safeDatabaseCall
+import database.safeDatabaseCall
 import model.DatabaseError
 import com.biondic.rssreader.subscriptions.data.mapper.SubscriptionEntityMapper
 import com.biondic.rssreader.subscriptions.domain.datasource.LocalSubscriptionsDatasource

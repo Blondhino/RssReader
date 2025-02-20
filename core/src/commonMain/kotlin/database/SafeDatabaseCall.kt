@@ -1,4 +1,4 @@
-package com.biondic.rssreader.core.database
+package database
 
 import arrow.core.Either
 import model.DatabaseError
