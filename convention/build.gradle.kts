@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `kotlin-dsl`
+    `kotlin-dsl-precompiled-script-plugins`
     `java-gradle-plugin`
 }
 
@@ -28,7 +29,13 @@ gradlePlugin {
 }
 
 repositories {
-    mavenCentral()
     google()
+    mavenCentral()
     gradlePluginPortal()
+    maven(url = "https://plugins.gradle.org/m2/")
+}
+
+dependencies {
+    implementation(libs.kotlin.gradle.plugin)
+    implementation(libs.gradle)
 }

@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.config.JvmTarget
+import config.ProjectConfigs
 import versioning.Versioning
 
 plugins {
@@ -47,6 +47,7 @@ kotlin {
             implementation(libs.sqldelight.android.driver)
         }
         commonMain.dependencies {
+            implementation(project(":core"))
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -83,12 +84,12 @@ java {
 
         android {
             namespace = "com.biondic.rssreader"
-            compileSdk = libs.versions.android.compileSdk.get().toInt()
+            compileSdk = ProjectConfigs.androidSdkConfig.compileSdk
 
             defaultConfig {
                 applicationId = "com.biondic.rssreader"
-                minSdk = libs.versions.android.minSdk.get().toInt()
-                targetSdk = libs.versions.android.targetSdk.get().toInt()
+                minSdk = ProjectConfigs.androidSdkConfig.minSdk
+                targetSdk = ProjectConfigs.androidSdkConfig.targetSdk
                 versionCode = Versioning(project.rootDir.path).readVersion().versionCode
                 versionName = Versioning(project.rootDir.path).readVersion().versionName
             }
