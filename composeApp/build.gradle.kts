@@ -25,7 +25,6 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android.compose)
-            implementation(libs.ktor.client.okhttp)
             implementation(libs.sqldelight.android.driver)
         }
         commonMain.dependencies {
@@ -41,14 +40,11 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.koin.core)
-            implementation(libs.bundles.arrow)
             implementation(libs.bundles.voyager)
-            implementation(libs.ktor.client.core)
             implementation(libs.landscapist.coil3)
         }
 
         nativeMain.dependencies {
-            implementation(libs.ktor.client.darwin)
             implementation(libs.sqldelight.native.driver)
         }
     }

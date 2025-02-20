@@ -1,8 +1,8 @@
 package com.biondic.rssreader.subscriptions.data.datasource
 
 import arrow.core.Either
-import com.biondic.rssreader.core.model.NetworkError
-import com.biondic.rssreader.core.networking.FeedFetcher
+import model.NetworkError
+import networking.FeedFetcher
 import com.biondic.rssreader.subscriptions.data.mapper.RssFeedToSubscriptionMapper
 import com.biondic.rssreader.subscriptions.domain.datasource.RemoteSubscriptionsDatasource
 import com.biondic.rssreader.subscriptions.domain.model.Subscription

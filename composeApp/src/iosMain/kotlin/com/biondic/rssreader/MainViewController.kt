@@ -6,11 +6,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.ComposeUIViewController
-import com.biondic.rssreader.core.di.platformModule
-import com.biondic.rssreader.core.di.sharedModule
-import com.biondic.rssreader.core.ui.AppContainer
-import com.biondic.rssreader.core.ui.darkScheme
-import com.biondic.rssreader.core.ui.lightScheme
+import com.biondic.rssreader.di.platformModule
+import com.biondic.rssreader.di.sharedModule
+import com.biondic.rssreader.ui.AppContainer
+import com.biondic.rssreader.ui.darkScheme
+import com.biondic.rssreader.ui.lightScheme
 import org.koin.core.context.startKoin
 import platform.UIKit.UIViewController
 

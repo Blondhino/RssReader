@@ -8,8 +8,15 @@ android {
 
 kotlin {
     sourceSets {
+        androidMain.dependencies {
+            api(libs.ktor.client.okhttp)
+        }
         commonMain.dependencies {
-
+            api(libs.bundles.arrow)
+            api(libs.ktor.client.core)
+        }
+        nativeMain.dependencies {
+            api(libs.ktor.client.darwin)
         }
     }
 }

@@ -25,10 +25,10 @@ import com.biondic.rssreader.article.ui.interaction.ArticlesViewEffect.OpenExter
 import com.biondic.rssreader.article.ui.model.ArticleScreenState.Content
 import com.biondic.rssreader.article.ui.model.ArticleScreenState.Error
 import com.biondic.rssreader.article.ui.model.ArticleScreenState.Loading
-import com.biondic.rssreader.core.ui.components.LoadingIndicator
-import com.biondic.rssreader.core.ui.components.RefreshableLazyColumn
-import com.biondic.rssreader.core.ui.components.RetryScreen
-import com.biondic.rssreader.core.ui.components.ScreenTopBar
+import com.biondic.rssreader.ui.components.LoadingIndicator
+import com.biondic.rssreader.ui.components.RefreshableLazyColumn
+import com.biondic.rssreader.ui.components.RetryScreen
+import com.biondic.rssreader.ui.components.ScreenTopBar
 import org.koin.core.parameter.parametersOf
 
 data class ArticleScreen(

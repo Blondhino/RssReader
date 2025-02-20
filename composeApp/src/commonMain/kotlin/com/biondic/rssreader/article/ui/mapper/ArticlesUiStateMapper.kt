@@ -6,7 +6,7 @@ import arrow.core.Either.Right
 import com.biondic.rssreader.article.domain.model.Article
 import com.biondic.rssreader.article.ui.model.ArticleScreenState
 import com.biondic.rssreader.article.ui.model.UIArticleItem
-import com.biondic.rssreader.core.model.RepositoryError
+import model.RepositoryError
 
 class ArticlesUiStateMapper {
     fun map(

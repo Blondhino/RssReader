@@ -12,8 +12,8 @@ import com.biondic.rssreader.article.ui.interaction.ArticlesViewEffect.GoBackToS
 import com.biondic.rssreader.article.ui.interaction.ArticlesViewEffect.OpenExternalUrl
 import com.biondic.rssreader.article.ui.mapper.ArticlesUiStateMapper
 import com.biondic.rssreader.article.ui.model.ArticleScreenState.Loading
-import com.biondic.rssreader.core.model.RefreshStrategy
-import com.biondic.rssreader.core.model.RefreshStrategy.SyncWithRemote
+import model.RefreshStrategy
+import model.RefreshStrategy.SyncWithRemote
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

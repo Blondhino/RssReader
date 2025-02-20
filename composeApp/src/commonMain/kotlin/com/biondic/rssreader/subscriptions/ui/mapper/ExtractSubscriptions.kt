@@ -3,7 +3,7 @@ package com.biondic.rssreader.subscriptions.ui.mapper
 import arrow.core.Either
 import arrow.core.raise.either
 import arrow.core.right
-import com.biondic.rssreader.core.model.RepositoryError
+import model.RepositoryError
 import com.biondic.rssreader.subscriptions.domain.model.Subscription
 import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData
 import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData.Local

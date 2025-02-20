@@ -1,6 +1,6 @@
 package com.biondic.rssreader.subscriptions.data.mapper
 
-import com.biondic.rssreader.core.model.rss.RssFeed
+import model.rss.RssFeed
 import com.biondic.rssreader.subscriptions.domain.model.Subscription
 
 class RssFeedToSubscriptionMapper {

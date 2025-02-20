@@ -1,6 +1,6 @@
 package com.biondic.rssreader.subscriptions.ui.state
 
-import com.biondic.rssreader.core.ui.components.SubscriptionScreenTab
+import com.biondic.rssreader.ui.components.SubscriptionScreenTab
 import com.biondic.rssreader.subscriptions.ui.model.UISubscriptionItem
 
 sealed interface SubscriptionsScreenState {

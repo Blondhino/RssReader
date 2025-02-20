@@ -1,7 +1,7 @@
 package com.biondic.rssreader.subscriptions.domain.usecase
 
 import arrow.core.Either
-import com.biondic.rssreader.core.model.RepositoryError
+import model.RepositoryError
 import com.biondic.rssreader.subscriptions.domain.model.Subscription
 import com.biondic.rssreader.subscriptions.domain.repo.SubscriptionRepository
 

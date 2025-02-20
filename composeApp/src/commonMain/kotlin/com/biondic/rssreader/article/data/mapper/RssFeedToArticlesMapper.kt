@@ -1,7 +1,7 @@
 package com.biondic.rssreader.article.data.mapper
 
 import com.biondic.rssreader.article.domain.model.Article
-import com.biondic.rssreader.core.model.rss.RssFeed
+import model.rss.RssFeed
 
 class RssFeedToArticlesMapper {
     fun map(feed: RssFeed): List<Article> = feed.items.map {

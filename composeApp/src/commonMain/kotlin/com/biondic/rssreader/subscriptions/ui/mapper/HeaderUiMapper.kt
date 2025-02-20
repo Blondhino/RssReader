@@ -1,6 +1,6 @@
 package com.biondic.rssreader.subscriptions.ui.mapper
 
-import com.biondic.rssreader.core.utils.Dictionary
+import com.biondic.rssreader.ui.Dictionary
 import com.biondic.rssreader.subscriptions.ui.state.HeaderState
 import com.biondic.rssreader.subscriptions.ui.state.HeaderStaticData
 import rssreader.composeapp.generated.resources.Res

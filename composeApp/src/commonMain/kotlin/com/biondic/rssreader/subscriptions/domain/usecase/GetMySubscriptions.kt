@@ -1,9 +1,9 @@
 package com.biondic.rssreader.subscriptions.domain.usecase
 
 import arrow.core.Either
-import com.biondic.rssreader.core.model.RefreshStrategy
-import com.biondic.rssreader.core.model.RefreshStrategy.SyncWithRemote
-import com.biondic.rssreader.core.model.RepositoryError
+import model.RefreshStrategy
+import model.RefreshStrategy.SyncWithRemote
+import model.RepositoryError
 import com.biondic.rssreader.subscriptions.domain.model.Subscription
 import com.biondic.rssreader.subscriptions.domain.model.SubscriptionData.Remote
 import com.biondic.rssreader.subscriptions.domain.repo.SubscriptionRepository

@@ -2,9 +2,9 @@ package com.biondic.rssreader.subscriptions.ui
 
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
-import com.biondic.rssreader.core.model.RefreshStrategy
-import com.biondic.rssreader.core.model.RefreshStrategy.ReFetchLocalItems
-import com.biondic.rssreader.core.model.RefreshStrategy.SyncWithRemote
+import model.RefreshStrategy
+import model.RefreshStrategy.ReFetchLocalItems
+import model.RefreshStrategy.SyncWithRemote
 import com.biondic.rssreader.subscriptions.domain.usecase.SubscriptionsCrudOperations
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.AddButtonClicked

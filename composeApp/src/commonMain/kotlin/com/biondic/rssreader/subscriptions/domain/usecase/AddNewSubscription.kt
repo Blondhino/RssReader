@@ -2,8 +2,8 @@ package com.biondic.rssreader.subscriptions.domain.usecase
 
 import arrow.core.Either
 import arrow.core.raise.either
-import com.biondic.rssreader.core.model.RepositoryError
-import com.biondic.rssreader.core.networking.FeedFetcher
+import model.RepositoryError
+import networking.FeedFetcher
 import com.biondic.rssreader.subscriptions.data.mapper.RssFeedToSubscriptionMapper
 import com.biondic.rssreader.subscriptions.domain.repo.SubscriptionRepository
 

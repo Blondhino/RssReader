@@ -1,9 +1,9 @@
 package com.biondic.rssreader.subscriptions.ui.mapper
 
-import com.biondic.rssreader.core.ui.components.SubscriptionScreenTab
-import com.biondic.rssreader.core.ui.components.SubscriptionScreenTab.Favorites
-import com.biondic.rssreader.core.ui.components.SubscriptionScreenTab.Subscriptions
-import com.biondic.rssreader.core.utils.Dictionary
+import com.biondic.rssreader.ui.components.SubscriptionScreenTab
+import com.biondic.rssreader.ui.components.SubscriptionScreenTab.Favorites
+import com.biondic.rssreader.ui.components.SubscriptionScreenTab.Subscriptions
+import com.biondic.rssreader.ui.Dictionary
 import com.biondic.rssreader.subscriptions.ui.state.TabState
 import rssreader.composeapp.generated.resources.Res
 import rssreader.composeapp.generated.resources.subscriptions_screen_tab_all

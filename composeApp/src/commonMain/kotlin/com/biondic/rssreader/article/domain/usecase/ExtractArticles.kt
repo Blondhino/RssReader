@@ -9,7 +9,7 @@ import com.biondic.rssreader.article.domain.model.Article
 import com.biondic.rssreader.article.domain.model.ArticleData
 import com.biondic.rssreader.article.domain.model.ArticleData.Local
 import com.biondic.rssreader.article.domain.model.ArticleData.Remote
-import com.biondic.rssreader.core.model.RepositoryError
+import model.RepositoryError
 
 class ExtractArticles {
     private val localItems: MutableList<Article> = mutableListOf()

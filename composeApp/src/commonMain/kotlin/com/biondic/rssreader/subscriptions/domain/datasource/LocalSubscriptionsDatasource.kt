@@ -1,7 +1,7 @@
 package com.biondic.rssreader.subscriptions.domain.datasource
 
 import arrow.core.Either
-import com.biondic.rssreader.core.model.DatabaseError
+import model.DatabaseError
 import com.biondic.rssreader.subscriptions.domain.model.Subscription
 
 interface LocalSubscriptionsDatasource {

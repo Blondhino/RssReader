@@ -6,7 +6,7 @@ import com.biondic.rssreader.article.data.mapper.ArticleEntityMapper
 import com.biondic.rssreader.article.domain.datasource.LocalArticlesDatasource
 import com.biondic.rssreader.article.domain.model.Article
 import com.biondic.rssreader.core.database.safeDatabaseCall
-import com.biondic.rssreader.core.model.DatabaseError
+import model.DatabaseError
 
 class DatabaseArticlesDatasource(
     private val articlesTable: ArticleQueries,

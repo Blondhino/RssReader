@@ -1,8 +1,8 @@
 package com.biondic.rssreader.article.domain.model
 
 import arrow.core.Either
-import com.biondic.rssreader.core.model.DatabaseError
-import com.biondic.rssreader.core.model.NetworkError
+import model.DatabaseError
+import model.NetworkError
 
 sealed interface ArticleData {
     data class Local(val results: Either<DatabaseError, List<Article>>) : ArticleData

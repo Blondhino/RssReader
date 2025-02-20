@@ -1,8 +1,8 @@
 package com.biondic.rssreader.subscriptions.data.repo
 
 import arrow.core.Either
-import com.biondic.rssreader.core.model.NetworkError
-import com.biondic.rssreader.core.model.RepositoryError
+import model.NetworkError
+import model.RepositoryError
 import com.biondic.rssreader.subscriptions.domain.datasource.LocalSubscriptionsDatasource
 import com.biondic.rssreader.subscriptions.domain.datasource.RemoteSubscriptionsDatasource
 import com.biondic.rssreader.subscriptions.domain.model.Subscription

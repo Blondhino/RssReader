@@ -1,7 +1,7 @@
 package com.biondic.rssreader.subscriptions.ui.mapper
 
 import arrow.core.Either
-import com.biondic.rssreader.core.model.RepositoryError
+import model.RepositoryError
 import com.biondic.rssreader.subscriptions.domain.model.Subscription
 import com.biondic.rssreader.subscriptions.ui.state.HeaderState
 import com.biondic.rssreader.subscriptions.ui.state.SubscriptionsScreenState

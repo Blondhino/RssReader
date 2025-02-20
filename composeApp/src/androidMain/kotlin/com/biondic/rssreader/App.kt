@@ -1,8 +1,8 @@
 package com.biondic.rssreader
 
 import android.app.Application
-import com.biondic.rssreader.core.di.platformModule
-import com.biondic.rssreader.core.di.sharedModule
+import com.biondic.rssreader.di.platformModule
+import com.biondic.rssreader.di.sharedModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
