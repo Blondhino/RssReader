@@ -74,6 +74,7 @@ google-services = { id = "com.google.gms.google-services", version.ref = "google
 android-versioning = { id = "rssreader.android.versioning", version = "unspecified" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kmp-app-plugin = { id = "kmp-app-plugin", version = "unspecified" }
+kmp-library-plugin = { id = "kmp-library-plugin", version = "unspecified" }
 
 [bundles]
 
