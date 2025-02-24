@@ -9,8 +9,8 @@ import androidx.compose.ui.window.ComposeUIViewController
 import com.biondic.rssreader.di.platformModule
 import com.biondic.rssreader.di.sharedModule
 import com.biondic.rssreader.ui.AppContainer
-import com.biondic.rssreader.ui.darkScheme
-import com.biondic.rssreader.ui.lightScheme
+import darkScheme
+import lightScheme
 import org.koin.core.context.startKoin
 import platform.UIKit.UIViewController
 

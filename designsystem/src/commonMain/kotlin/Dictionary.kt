@@ -1,5 +1,3 @@
-package com.biondic.rssreader.ui
-
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.getString as getStringResource

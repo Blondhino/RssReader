@@ -13,9 +13,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import com.biondic.rssreader.ui.AppContainer
-import com.biondic.rssreader.ui.AppTheme
-import com.biondic.rssreader.ui.surfaceDark
-import com.biondic.rssreader.ui.surfaceLight
+import AppTheme
+import surfaceDark
+import surfaceLight
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

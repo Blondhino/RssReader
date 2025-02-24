@@ -1,11 +1,11 @@
 package com.biondic.rssreader.subscriptions.ui.mapper
 
-import com.biondic.rssreader.ui.Dictionary
+import Dictionary
 import com.biondic.rssreader.subscriptions.ui.state.HeaderState
 import com.biondic.rssreader.subscriptions.ui.state.HeaderStaticData
-import rssreader.composeapp.generated.resources.Res
-import rssreader.composeapp.generated.resources.header_button_add_text
-import rssreader.composeapp.generated.resources.header_url_field_hint
+import com.rssreader.designsystem.Res
+import com.rssreader.designsystem.header_button_add_text
+import com.rssreader.designsystem.header_url_field_hint
 
 class HeaderUiMapper(
     dictionary: Dictionary,

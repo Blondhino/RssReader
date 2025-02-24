@@ -31,5 +31,5 @@ dependencyResolutionManagement {
 
 include(":composeApp")
 include(":core")
-
+include(":designsystem")
 include(":feature:article")

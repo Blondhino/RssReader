@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.biondic.rssreader.article.ui.model.UIArticleItem
-import com.biondic.rssreader.ui.components.InfoCard
+import components.InfoCard
 import com.skydoves.landscapist.coil3.CoilImage
 
 @Composable

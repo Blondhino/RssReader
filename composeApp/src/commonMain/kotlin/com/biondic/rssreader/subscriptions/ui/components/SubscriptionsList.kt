@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.biondic.rssreader.ui.components.RefreshableLazyColumn
+import components.RefreshableLazyColumn
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.RefreshCalled
 import com.biondic.rssreader.subscriptions.ui.model.UISubscriptionItem

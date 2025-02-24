@@ -15,9 +15,9 @@ import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.biondic.rssreader.article.ui.ArticleScreen
-import com.biondic.rssreader.ui.components.LoadingIndicator
-import com.biondic.rssreader.ui.components.RetryScreen
-import com.biondic.rssreader.ui.components.TabSelector
+import components.LoadingIndicator
+import components.RetryScreen
+import components.TabSelector
 import com.biondic.rssreader.subscriptions.ui.components.AllSubscriptions
 import com.biondic.rssreader.subscriptions.ui.components.FavoriteSubscriptions
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent

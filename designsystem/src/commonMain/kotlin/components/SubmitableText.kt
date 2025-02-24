@@ -1,4 +1,4 @@
-package com.biondic.rssreader.ui.components
+package components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState

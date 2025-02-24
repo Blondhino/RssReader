@@ -1,4 +1,4 @@
-package com.biondic.rssreader.ui.components
+package components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

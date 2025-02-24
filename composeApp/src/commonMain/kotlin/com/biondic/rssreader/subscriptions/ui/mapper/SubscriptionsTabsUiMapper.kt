@@ -1,22 +1,21 @@
 package com.biondic.rssreader.subscriptions.ui.mapper
 
-import com.biondic.rssreader.ui.components.SubscriptionScreenTab
-import com.biondic.rssreader.ui.components.SubscriptionScreenTab.Favorites
-import com.biondic.rssreader.ui.components.SubscriptionScreenTab.Subscriptions
-import com.biondic.rssreader.ui.Dictionary
 import com.biondic.rssreader.subscriptions.ui.state.TabState
-import rssreader.composeapp.generated.resources.Res
-import rssreader.composeapp.generated.resources.subscriptions_screen_tab_all
-import rssreader.composeapp.generated.resources.subscriptions_screen_tab_favorites
-import rssreader.composeapp.generated.resources.subscriptions_screen_tab_favorites_title
+import Dictionary
+import components.SubscriptionScreenTab
+import components.SubscriptionScreenTab.Favorites
+import components.SubscriptionScreenTab.Subscriptions
+import com.rssreader.designsystem.Res
+import com.rssreader.designsystem.subscriptions_screen_tab_all
+import com.rssreader.designsystem.subscriptions_screen_tab_favorites
+import com.rssreader.designsystem.subscriptions_screen_tab_favorites_title
 
 class SubscriptionsTabsUiMapper(
     private val dictionary: Dictionary,
 ) {
     private val tabs: List<SubscriptionScreenTab> = listOf(
         Subscriptions(
-            tabTitle = dictionary.getString(Res.string.subscriptions_screen_tab_all),
-            tabId = 0,
+            tabTitle = dictionary.getString(Res.string.subscriptions_screen_tab_all), tabId = 0,
         ),
         Favorites(
             tabTitle = dictionary.getString(Res.string.subscriptions_screen_tab_favorites),

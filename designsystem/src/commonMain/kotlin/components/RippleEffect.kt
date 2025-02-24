@@ -1,4 +1,4 @@
-package com.biondic.rssreader.ui.components
+package components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource

@@ -1,4 +1,4 @@
-package com.biondic.rssreader.ui.components
+package components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,10 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.rssreader.designsystem.Res
+import com.rssreader.designsystem.retry_screen_button_text
+import com.rssreader.designsystem.retry_screen_message
 import org.jetbrains.compose.resources.stringResource
-import rssreader.composeapp.generated.resources.Res
-import rssreader.composeapp.generated.resources.retry_screen_button_text
-import rssreader.composeapp.generated.resources.retry_screen_message
 
 @Composable
 fun RetryScreen(
