@@ -13,11 +13,12 @@ import com.biondic.rssreader.article.domain.usecase.GetArticles
 import com.biondic.rssreader.article.ui.ArticleViewModel
 import com.biondic.rssreader.article.ui.mapper.ArticlesUiStateMapper
 import org.koin.core.module.dsl.factoryOf
+import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
 fun articleModule() = module {
-    factoryOf(::ArticleViewModel)
+    viewModelOf(::ArticleViewModel)
     factoryOf(::OfflineFirstArticleRepository) bind ArticleRepository::class
     factoryOf(::NetworkArticlesDatasource) bind RemoteArticlesDatasource::class
     factoryOf(::DatabaseArticlesDatasource) bind LocalArticlesDatasource::class

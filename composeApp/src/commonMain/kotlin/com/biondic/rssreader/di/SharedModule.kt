@@ -12,4 +12,5 @@ fun sharedModule() = module {
     includes(articleModule())
     includes(networkingModule())
     includes(databaseModule())
+    includes(navigationModule())
 }

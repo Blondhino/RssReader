@@ -21,11 +21,12 @@ import com.biondic.rssreader.subscriptions.ui.mapper.SubscriptionsScreenUiMapper
 import com.biondic.rssreader.subscriptions.ui.mapper.SubscriptionsScreenUiMappers
 import com.biondic.rssreader.subscriptions.ui.mapper.SubscriptionsTabsUiMapper
 import org.koin.core.module.dsl.factoryOf
+import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
 fun subscriptionsModule() = module {
-    factoryOf(::SubscriptionsViewModel)
+    viewModelOf(::SubscriptionsViewModel)
     factoryOf(::AddNewSubscription)
     factoryOf(::GetMySubscriptions)
     factoryOf(::DeleteSubscription)

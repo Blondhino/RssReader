@@ -1,10 +1,7 @@
 package com.biondic.rssreader.subscriptions.ui
 
-import cafe.adriel.voyager.core.model.ScreenModel
-import cafe.adriel.voyager.core.model.screenModelScope
-import model.RefreshStrategy
-import model.RefreshStrategy.ReFetchLocalItems
-import model.RefreshStrategy.SyncWithRemote
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.biondic.rssreader.subscriptions.domain.usecase.SubscriptionsCrudOperations
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent.AddButtonClicked
@@ -30,11 +27,14 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import model.RefreshStrategy
+import model.RefreshStrategy.ReFetchLocalItems
+import model.RefreshStrategy.SyncWithRemote
 
 class SubscriptionsViewModel(
     private val subscriptionsCrud: SubscriptionsCrudOperations,
     private val uiMappers: SubscriptionsScreenUiMappers,
-) : ScreenModel {
+) : ViewModel() {
     private val _headerState = MutableStateFlow(uiMappers.headerUiMapper.map())
     private val _tabState = MutableStateFlow(uiMappers.tabsUiMapper.map())
     private val refreshTrigger = Channel<RefreshStrategy>()
@@ -60,7 +60,7 @@ class SubscriptionsViewModel(
         _refreshing,
         uiMappers.screenUiMapper::map,
     ).stateIn(
-        scope = screenModelScope,
+        scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5000),
         initialValue = SubscriptionsScreenState.Loading,
     )
@@ -69,28 +69,28 @@ class SubscriptionsViewModel(
         when (event) {
             is AddButtonClicked -> handleAddButtonClickAction(event.url)
             is FavoriteToggleClicked -> handleFavoriteToggleAction(event.subscription)
-            is RefreshCalled -> screenModelScope.launch { refreshTrigger.send(SyncWithRemote) }
+            is RefreshCalled -> viewModelScope.launch { refreshTrigger.send(SyncWithRemote) }
             is RemoveButtonClicked -> handleRemoveButtonClickAction(event.url)
             is UrlFieldChanged -> _headerState.update { it.copy(text = event.url, error = null) }
             is TabSelected -> _tabState.update { uiMappers.tabsUiMapper.map(event.tab) }
-            is SubscriptionClick -> screenModelScope.launch {
+            is SubscriptionClick -> viewModelScope.launch {
                 _viewEffect.send(OpenArticles(event.subscription.url, event.subscription.title))
             }
         }
     }
 
-    private fun handleRemoveButtonClickAction(url: String) = screenModelScope.launch {
+    private fun handleRemoveButtonClickAction(url: String) = viewModelScope.launch {
         subscriptionsCrud.deleteSubscription(url)
         refreshTrigger.send(ReFetchLocalItems)
     }
 
     private fun handleFavoriteToggleAction(subscription: UISubscriptionItem) =
-        screenModelScope.launch {
+        viewModelScope.launch {
             subscriptionsCrud.toggleSubscriptionIsFavoriteState(subscription.toDomain())
             refreshTrigger.send(ReFetchLocalItems)
         }
 
-    private fun handleAddButtonClickAction(url: String) = screenModelScope.launch {
+    private fun handleAddButtonClickAction(url: String) = viewModelScope.launch {
         if (_headerState.value.error != null) {
             _headerState.update { it.copy(error = null, text = "") }
         } else {

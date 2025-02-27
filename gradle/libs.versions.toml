@@ -24,9 +24,11 @@ kotlin = "2.0.21"
 koin = "4.0.1"
 ktor = "3.0.3"
 ktlintCli = "1.2.1"
+navigationCompose = "2.8.0-alpha10"
 sqldelight = "2.0.2"
 voyager = "1.1.0-beta03"
 ksp = "2.1.10-1.0.29"
+serializationJson = "1.7.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -46,6 +48,8 @@ arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
 arrow-coroutines = { group = "io.arrow-kt", name = "arrow-fx-coroutines", version.ref = "arrow" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin" }
+koin-compose-viewmodel = {group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koin"}
 kotlin_gradle_plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "gradle" }
 ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
@@ -55,12 +59,10 @@ ktlint-cli = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlint
 landscapist-coil3 = { module = "com.github.skydoves:landscapist-coil3", version.ref = "coil3" }
 detekt-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektFormatting" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 sqldelight-android-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
 sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
-voyager-koin = { group = "cafe.adriel.voyager", name = "voyager-koin", version.ref = "voyager" }
-voyager-navigator = { group = "cafe.adriel.voyager", name = "voyager-navigator", version.ref = "voyager" }
-voyager-screenmodel = { group = "cafe.adriel.voyager", name = "voyager-screenmodel", version.ref = "voyager" }
-voyager-botomSheet-navigator = { group = "cafe.adriel.voyager", name = "voyager-bottom-sheet-navigator", version.ref = "voyager" }
+serialization-json = {group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationJson"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -75,17 +77,11 @@ android-versioning = { id = "rssreader.android.versioning", version = "unspecifi
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kmp-app-plugin = { id = "kmp-app-plugin", version = "unspecified" }
 kmp-library-plugin = { id = "kmp-library-plugin", version = "unspecified" }
+serialization-plugin = {id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 
 [bundles]
 
 arrow = [
     "arrow-core",
     "arrow-coroutines"
-]
-
-voyager = [
-    "voyager-koin",
-    "voyager-navigator",
-    "voyager-screenmodel",
-    "voyager-botomSheet-navigator"
 ]

@@ -1,8 +1,9 @@
 import config.ProjectConfigs
 
 plugins {
-    id("kmp-library-plugin")
+    alias(libs.plugins.kmp.library.plugin)
     alias(libs.plugins.sqldelight)
+    alias(libs.plugins.serialization.plugin)
 }
 
 sqldelight {
@@ -26,6 +27,10 @@ kotlin {
         commonMain.dependencies {
             api(libs.bundles.arrow)
             api(libs.ktor.client.core)
+            api(libs.serialization.json)
+            api(libs.navigation.compose)
+            api(libs.koin.compose.viewmodel)
+            implementation(libs.koin.core)
         }
         nativeMain.dependencies {
             api(libs.ktor.client.darwin)

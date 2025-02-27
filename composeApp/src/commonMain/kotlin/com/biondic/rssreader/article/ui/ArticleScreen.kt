@@ -11,10 +11,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
-import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.koin.koinScreenModel
-import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.currentOrThrow
 import com.biondic.rssreader.article.ui.components.UIArticleComposable
 import com.biondic.rssreader.article.ui.interaction.ArticlesEvent
 import com.biondic.rssreader.article.ui.interaction.ArticlesEvent.ArticleClick
@@ -29,37 +25,38 @@ import components.LoadingIndicator
 import components.RefreshableLazyColumn
 import components.RetryScreen
 import components.ScreenTopBar
+import navigation.Navigation
+import navigation.NavigationEvent.NavigateBack
+import org.koin.compose.koinInject
+import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
 
-data class ArticleScreen(
-    val url: String,
-    val sourceTitle: String,
-) : Screen {
-    @Composable
-    override fun Content() {
-        val viewModel: ArticleViewModel =
-            koinScreenModel(parameters = { parametersOf(url, sourceTitle) })
-        val navigator = LocalNavigator.currentOrThrow
-        val uiState by viewModel.uiState.collectAsState()
-        val uriHandler = LocalUriHandler.current
+@Composable
+fun ArticleScreen(
+    url: String,
+    sourceTitle: String,
+    appNavigator: Navigation = koinInject(),
+) {
+    val viewModel: ArticleViewModel = koinViewModel(parameters = { parametersOf(url, sourceTitle) })
+    val uiState by viewModel.uiState.collectAsState()
+    val uriHandler = LocalUriHandler.current
 
-        LaunchedEffect(Unit) {
-            viewModel.viewEffect.collect {
-                when (it) {
-                    is OpenExternalUrl -> uriHandler.openUri(it.externalUrl)
-                    is GoBackToSubscriptions -> navigator.pop()
-                }
+    LaunchedEffect(Unit) {
+        viewModel.viewEffect.collect {
+            when (it) {
+                is OpenExternalUrl -> uriHandler.openUri(it.externalUrl)
+                is GoBackToSubscriptions -> appNavigator.emitNavigationEvent(NavigateBack)
             }
         }
+    }
 
-        when (val state = uiState) {
-            is Error -> RetryScreen(onRetryClick = { viewModel.onEvent(RefreshCalled) })
-            is Loading -> LoadingIndicator(modifier = Modifier.fillMaxSize())
-            is Content -> ArticleScreenContent(
-                uiState = state,
-                onEvent = viewModel::onEvent,
-            )
-        }
+    when (val state = uiState) {
+        is Error -> RetryScreen(onRetryClick = { viewModel.onEvent(RefreshCalled) })
+        is Loading -> LoadingIndicator(modifier = Modifier.fillMaxSize())
+        is Content -> ArticleScreenContent(
+            uiState = state,
+            onEvent = viewModel::onEvent,
+        )
     }
 }
 

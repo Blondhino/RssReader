@@ -10,14 +10,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.koin.koinScreenModel
-import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.currentOrThrow
-import com.biondic.rssreader.article.ui.ArticleScreen
-import components.LoadingIndicator
-import components.RetryScreen
-import components.TabSelector
 import com.biondic.rssreader.subscriptions.ui.components.AllSubscriptions
 import com.biondic.rssreader.subscriptions.ui.components.FavoriteSubscriptions
 import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsEvent
@@ -27,27 +19,40 @@ import com.biondic.rssreader.subscriptions.ui.interaction.SubscriptionsViewEffec
 import com.biondic.rssreader.subscriptions.ui.state.SubscriptionsScreenState.Content
 import com.biondic.rssreader.subscriptions.ui.state.SubscriptionsScreenState.Error
 import com.biondic.rssreader.subscriptions.ui.state.SubscriptionsScreenState.Loading
+import components.LoadingIndicator
+import components.RetryScreen
+import components.TabSelector
+import navigation.AppRoute.Articles
+import navigation.Navigation
+import navigation.NavigationEvent.NavigateTo
+import org.koin.compose.koinInject
+import org.koin.compose.viewmodel.koinViewModel
 
-class SubscriptionsScreen : Screen {
-    @Composable
-    override fun Content() {
-        val viewModel: SubscriptionsViewModel = koinScreenModel()
-        val navigator = LocalNavigator.currentOrThrow
-        val uiState by viewModel.uiState.collectAsState()
-
-        LaunchedEffect(Unit) {
-            viewModel.viewEffect.collect { effect ->
-                when (effect) {
-                    is OpenArticles -> navigator.push(ArticleScreen(effect.url, effect.sourceTitle))
-                }
+@Composable
+fun SubscriptionsScreen(
+    viewModel: SubscriptionsViewModel = koinViewModel(),
+    appNavigation: Navigation = koinInject(),
+) {
+    val uiState by viewModel.uiState.collectAsState()
+    LaunchedEffect(Unit) {
+        viewModel.viewEffect.collect { effect ->
+            when (effect) {
+                is OpenArticles -> appNavigation.emitNavigationEvent(
+                    NavigateTo(
+                        Articles(
+                            url = effect.url,
+                            title = effect.sourceTitle,
+                        ),
+                    ),
+                )
             }
         }
+    }
 
-        when (val state = uiState) {
-            is Content -> SubscriptionsScreenContent(uiState = state, onEvent = viewModel::onEvent)
-            is Error -> RetryScreen { viewModel.onEvent(RefreshCalled) }
-            is Loading -> LoadingIndicator(modifier = Modifier.fillMaxSize())
-        }
+    when (val state = uiState) {
+        is Content -> SubscriptionsScreenContent(uiState = state, onEvent = viewModel::onEvent)
+        is Error -> RetryScreen { viewModel.onEvent(RefreshCalled) }
+        is Loading -> LoadingIndicator(modifier = Modifier.fillMaxSize())
     }
 }
 

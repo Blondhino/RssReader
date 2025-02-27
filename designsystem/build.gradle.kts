@@ -23,7 +23,6 @@ kotlin {
             api(compose.ui)
             api(compose.components.resources)
             api(compose.components.uiToolingPreview)
-            api(libs.bundles.voyager)
         }
         nativeMain.dependencies { }
     }
